@@ -1,6 +1,9 @@
 angucomplete-alt
 ============
 
+This is a re-fork of angucomplete-alt( by Hidenari Nozaki @ghiden). Added functionality for limiting number of results
+
+
 This is a fork of Daryl Rowland's angucomplete (https://github.com/darylrowland/angucomplete) with a bit of tweaks such as:  
 
 * change long attribute names to hyphenated ones
@@ -40,7 +43,8 @@ var app = angular.module('app', ["angucomplete-alt"]);
               search-fields="name"
               title-field="name"
               minlength="1"
-              input-class="form-control form-control-small"/>
+              input-class="form-control form-control-small"
+              limit-to="5"/>
 ```
 
 ### Remote Usage
@@ -55,7 +59,8 @@ var app = angular.module('app', ["angucomplete-alt"]);
               title-field="firstName,surname"
               description-field="email"
               image-field="profilePic"
-              input-class="form-control form-control-small"/>
+              input-class="form-control form-control-small"
+              limit-to="5"/>
 ```
 
 ### Description of attributes
@@ -78,4 +83,4 @@ var app = angular.module('app', ["angucomplete-alt"]);
 | remote-url-request-formatter | A function that takes a query string and returns parameter(s) for GET. It should take the query string as argument and returns a key-value object.| No | Suppose if you need to send a query keyword and a timestamp to search API, you can write a function like this in the parent scope. $scope.dataFormatFn = function(str) { return {q: str, timestamp: +new Date()}; } |
 | clear-selected | To clear out input field upon selecting an item, set this attribute to true. | No | true |
 | override-suggestions | To override suggestions and set the value in input field to selectedObject | No | true |
-
+| limit-to             | To limit the number of results in angucomplete | No | 5 |
